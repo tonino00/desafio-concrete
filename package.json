@@ -1,9 +1,28 @@
 {
-  "name": "Desafio concrete",
+  "name": "desafio-concrete",
   "version": "1.0.0",
-  "description": "Onbording training",
-  "main": "index.js",
+  "description": "onbording training",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --watchAll",
+    "dev": "nodemon index.js"
+  },
   "repository": "https://github.com/tonino00/desafio-concrete.git",
   "author": "antoninocgama@hotmail.com",
-  "license": "MIT"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "nock": "^11.7.0",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "@hapi/joi": "^16.1.8",
+    "bcrypt": "^3.0.7",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^7.4.0",
+    "nodemon": "^2.0.1"
+  }
 }
