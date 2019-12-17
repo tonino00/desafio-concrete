@@ -16,8 +16,12 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
+    "@google/maps": "^1.0.2",
     "@hapi/joi": "^16.1.8",
     "bcrypt": "^3.0.7",
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^3.2.0",
+    "express-session": "^1.17.0",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",

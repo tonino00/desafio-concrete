@@ -1,0 +1,19 @@
+//routes.test.js
+const request = require('supertest');
+const server = require('../server');
+beforeAll(async () => {
+    // do something before anything else runs
+    console.log('Jest starting!');
+   });
+   // close the server after each test
+   afterAll(() => {
+    server.close();
+    console.log('server closed!');
+   });
+describe('basic route tests', () => {
+ test(' route GET /', async () => {
+ const response = await request(server).post('/singup');
+ expect(response.status).toEqual(200);
+ expect(response.text).toContain('Hello World!');
+ });
+});
