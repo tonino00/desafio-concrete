@@ -3,8 +3,6 @@ const bodyParser = require('koa-bodyparser');
 const Router = require('koa-router');
 const logger = require('koa-logger');
 const app = new Koa();
-app.use(bodyParser());
-const router = new Router();
 app.use(logger());
 
 // Routes 
