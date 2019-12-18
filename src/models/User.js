@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs');
 const googleMapsClient = require('@google/maps').createClient({
-    key: 'AIzaSyB6lHSF83SypD6_LHTWaxOMLbfoe_Xt7D8', Promise
+    key: 'AIzaSyB6lHSF83SypD6_LHTWaxOMLbfoe_Xt7D8',
+    Promise
 });
 
 
@@ -59,6 +60,7 @@ UserSchema.pre("save", async function hashPassword() {
 });
 
 UserSchema.methods = {
+
     compareHash(hash) {
         return bcrypt.compare(hash, this.senha);
     },
@@ -71,15 +73,19 @@ UserSchema.methods = {
         });
     },
 
-   async generationLocation() {
+
+    async generationLocation() {
         const response = await googleMapsClient.geocode({
-            address: '50070460',
-        })
-        .asPromise();
-        const  { lat, lng } =  response.json.results[0].geometry.location;
-        return { 
-            type : 'POINT',
-            coordinates : [ lat, lng]
+                address: '50070460',
+            })
+            .asPromise();
+        const {
+            lat,
+            lng
+        } = response.json.results[0].geometry.location;
+        return {
+            type: 'POINT',
+            coordinates: [lat, lng]
         }
     }
 

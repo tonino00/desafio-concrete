@@ -1,9 +1,9 @@
 const Joi = require('@hapi/joi');
 const User = require('../models/User');
 const googleMapsClient = require('@google/maps').createClient({
-    key: 'AIzaSyB6lHSF83SypD6_LHTWaxOMLbfoe_Xt7D8', Promise
+    key: 'AIzaSyB6lHSF83SypD6_LHTWaxOMLbfoe_Xt7D8',
+    Promise
 });
-
 
 
 
@@ -31,8 +31,7 @@ const singUpschema = Joi.object({
     telefones: Joi.array().items(Joi.object({
         numero: Joi.string().pattern(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/).required(),
         ddd: Joi.string().optional()
-    })
-    ),
+    })),
 
     cep: Joi.string()
         .pattern(/^\d{5}-\d{3}$/)
@@ -45,32 +44,30 @@ async function myGeolocation() {
             address: '50070460',
         })
         .asPromise();
-    const  { lat, lng } =  response.json.results[0].geometry.location;
-         return { 
-              type : 'POINT',
-              coordinates : [ lat, lng]
-          }
+    const {
+        lat,
+        lng
+    } = response.json.results[0].geometry.location;
+    return {
+        type: 'POINT',
+        coordinates: [lat, lng]
+    }
 
 }
 
 async function singUp(ctx) {
     try {
-        await singUpschema.validateAsync(ctx.request.body);       
-        const user = await User.create( ctx.request.body);
-    
-        user.geolocation = await user.generationLocation();
-         
+        await singUpschema.validateAsync(ctx.request.body);
+        const user = await User.create(ctx.request.body);
 
-         ctx.body = user;
-    }
-    catch (err) { 
-     console.log(err);
+        user.geolocation = await user.generationLocation();
+
+
+        ctx.body = user;
+    } catch (err) {
+        console.log(err);
     }
 }
 
+
 module.exports = singUp;
-
-
-
-
-
