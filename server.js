@@ -7,6 +7,12 @@ const app = new Koa();
 app.use(logger());
 
 
+//Mongodb atlas
+
+// mongoose.connect('mongodb://127.0.0.1:27017/desafio', {useNewUrlParser: true })
+// .then(()=> 'You are now connect to dataMongo')
+// .catch(err => console.error('Someting went wrong', err));
+
 
 mongoose.connect('mongodb://127.0.0.1:27017/desafio', {
         useNewUrlParser: true,
@@ -25,11 +31,8 @@ if (!db)
 else
     console.log("Db connected successfully")
 
-// mongoose.connect('mongodb://127.0.0.1:27017/desafio', {useNewUrlParser: true })
-// .then(()=> 'You are now connect to dataMongo')
-// .catch(err => console.error('Someting went wrong', err));
 
-// const mongoStore = connectMongo(expressSession);
+
 
 
 
