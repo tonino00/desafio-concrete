@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --watchAll",
-    "dev": "nodemon index.js"
+    "dev": "nodemon server.js",
+    "start": "node src/server.js"
   },
   "repository": "https://github.com/tonino00/desafio-concrete.git",
   "author": "antoninocgama@hotmail.com",

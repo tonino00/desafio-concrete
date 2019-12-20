@@ -41,5 +41,6 @@ else
 app.use(bodyParser());
 app.use(router.routes());
 app.use(router.allowedMethods());
-const server = app.listen(3000);
+const door = process.env.PORT || 3000;
+const server = app.listen(door);
 module.exports = server;
