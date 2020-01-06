@@ -1,4 +1,3 @@
-require("dotenv").config();
 const Koa = require('koa');
 const router = require('./src/routes');
 const logger = require('koa-logger');
@@ -15,19 +14,12 @@ app.use(logger());
 // .catch(err => console.error('Someting went wrong', err));
 
 
-// mongoose.connect('mongodb+srv://user01:user01@testeonbording-jydcz.mongodb.net/test?retryWrites=true&w=majority', {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true,
-//     })
-//     .then(() => console.log("DB server connect"))
-//     .catch(e => console.log("DB error", e));
-
-mongoose.connect(
-    process.env.MONGO_URL,
-    {
-      useNewUrlParser: true
-    }
-  );
+mongoose.connect('mongodb+srv://user01:user01@testeonbording-jydcz.mongodb.net/test?retryWrites=true&w=majority', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => console.log("DB server connect"))
+    .catch(e => console.log("DB error", e));
 
 
 var db = mongoose.connection;
