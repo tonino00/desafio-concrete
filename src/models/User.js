@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs');
+const moment = require('moment');
 const googleMapsClient = require('@google/maps').createClient({
     key: 'AIzaSyB6lHSF83SypD6_LHTWaxOMLbfoe_Xt7D8',
     Promise
@@ -40,15 +41,15 @@ const UserSchema = new mongoose.Schema({
 
     data_criacao: {
         type: Date,
-        default: Date.now
+        default: moment(new Date()).locale('pt-br').format("DD/MM/YYYY"),
     },
     data_atualizacao: {
         type: Date,
-        default: Date.now
+        default: moment(new Date()).locale('pt-br').format("DD/MM/YYYY"),
     },
     ultimo_login: {
         type: Date,
-        default: Date.now
+        default: moment(new Date()).locale('pt-br').format("DD/MM/YYYY"),
     }
 });
 

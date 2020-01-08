@@ -9,17 +9,17 @@ app.use(logger());
 
 //Mongodb atlas
 
-// mongoose.connect('mongodb://127.0.0.1:27017/desafio', {useNewUrlParser: true, useUnifiedTopology: true })
-// .then(()=> 'You are now connect to dataMongo')
-// .catch(err => console.error('Someting went wrong', err));
+mongoose.connect('mongodb://127.0.0.1:27017/desafio', {useNewUrlParser: true, useUnifiedTopology: true })
+.then(()=> 'You are now connect to dataMongo')
+.catch(err => console.error('Someting went wrong', err));
 
 
-mongoose.connect('mongodb+srv://user01:user01@testeonbording-jydcz.mongodb.net/test?retryWrites=true&w=majority', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => console.log("DB server connect"))
-    .catch(e => console.log("DB error", e));
+// mongoose.connect('mongodb+srv://user01:user01@testeonbording-jydcz.mongodb.net/test?retryWrites=true&w=majority', {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true,
+//     })
+//     .then(() => console.log("DB server connect"))
+//     .catch(e => console.log("DB error", e));
 
 
 var db = mongoose.connection;

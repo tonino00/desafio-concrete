@@ -9,11 +9,8 @@ const googleMapsClient = require('@google/maps').createClient({
 
 const singUpschema = Joi.object({
     nome: Joi.string()
-        .alphanum()
-        .min(3)
-        .max(30)
-        .required(),
-
+             .required()
+             .description('Nome do usuário'),
 
     email: Joi.string()
         .email({
@@ -22,7 +19,8 @@ const singUpschema = Joi.object({
                 allow: ['com', 'net']
             }
         })
-        .required(),
+        .required()
+        .description('E-mail'),
 
     senha: Joi.string()
         .pattern(/^[a-zA-Z0-9]{3,30}$/)
